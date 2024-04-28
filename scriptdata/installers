@@ -7,15 +7,11 @@
 # cd "$(dirname "$0")"
 # export base="$(pwd)"
 
-install-yay() {
+install-paru() {
   x sudo pacman -S --needed --noconfirm base-devel
-  x git clone https://aur.archlinux.org/yay-bin.git /tmp/buildyay
-  x cd /tmp/buildyay
-  x makepkg -o
-  x makepkg -se
-  x makepkg -i --noconfirm
-  x cd $base
-  rm -rf /tmp/buildyay
+  x git clone https://aur.archlinux.org/paru.git
+  x cd paru
+  x makepkg -si
 }
 
 install-ags (){
