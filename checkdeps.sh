@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Check whether pkgs exist in AUR or repos of Arch.
-# This is a workaround for https://github.com/end-4/dots-hyprland/discussions/204
+# This is a workaround for https://github.com/kittuxvamshi/dotfiles/discussions/204
 # Do NOT abuse this since it consumes extra bandwidth from AUR server.
 
 cd "$(dirname "$0")"
