@@ -44,7 +44,7 @@ v sudo deluser "$user" input
 ##############################################################################################################################
 read -p "Do you want to uninstall packages used by the dotfiles?\nCtrl+C to exit, or press Enter to proceed"
 
-# Removing installed yay packages and dependencies
+# Removing installed  packages and dependencies
 v paru -Rns adw-gtk3-git brightnessctl cava foot fuzzel gjs gojq gradience-git grim gtk-layer-shell hyprland-git lexend-fonts-git libdbusmenu-gtk3 plasma-browser-integration playerctl python-build python-material-color-utilities python-poetry python-pywal ripgrep sassc swww slurp starship swayidle hyprlock-git tesseract ttf-jetbrains-mono-nerd ttf-material-symbols-variable-git ttf-space-mono-nerd typescript webp-pixbuf-loader wl-clipboard wlogout yad ydotool
 
 printf '\e[36mUninstall Complete.\n\e[97m'
