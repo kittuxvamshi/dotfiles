@@ -49,36 +49,36 @@ esac
 remove_bashcomments_emptylines ${DEPLISTFILE} ./cache/dependencies_stripped.conf
 readarray -t pkglist < ./cache/dependencies_stripped.conf
 
-if ! command -v yay >/dev/null 2>&1;then
-  if ! command -v paru >/dev/null 2>&1;then
-    echo -e "\e[33m[$0]: \"yay\" not found.\e[0m"
-    showfun install-yay
-    v install-yay
-    AUR_HELPER=yay
-  else
-    echo -e "\e[33m[$0]: \"yay\" not found, but \"paru\" found.\e[0m"
-    echo -e "\e[33mIt is not recommended to use \"paru\" as warned in Hyprland Wiki:\e[0m"
-    echo -e "\e[33m    \"If you are using the AUR (hyprland-git) package, you will need to cleanbuild to update the package. Paru has been problematic with updating before, use Yay.\"\e[0m"
-    echo -e "\e[33mReference: https://wiki.hyprland.org/FAQ/#how-do-i-update\e[0m"
-    if $ask;then
-      printf "Install \"yay\"?\n"
-      printf "  y = Yes, install \"yay\" for me first. (DEFAULT)\n"
-      printf "  n = No, use \"paru\" at my own risk.\n"
-      printf "  a = Abort.\n"
-      sleep 2
-      read -p "====> " p
-      case $p in
-        [Nn]) AUR_HELPER=paru;;
-        [Aa]) echo -e "\e[34mAlright, aborting...\e[0m";exit 1;;
-        *) v paru -S --needed --noconfirm yay-bin;
-           AUR_HELPER=yay;;
-      esac
-    else
-      AUR_HELPER=paru
-    fi
-  fi
-else AUR_HELPER=yay
-fi
+#if ! command -v yay >/dev/null 2>&1;then
+  #if ! command -v paru >/dev/null 2>&1;then
+    #echo -e "\e[33m[$0]: \"yay\" not found.\e[0m"
+    #showfun install-yay
+    #v install-yay
+    #AUR_HELPER=yay
+  #else
+    #echo -e "\e[33m[$0]: \"yay\" not found, but \"paru\" found.\e[0m"
+    #echo -e "\e[33mIt is not recommended to use \"paru\" as warned in Hyprland Wiki:\e[0m"
+    #echo -e "\e[33m    \"If you are using the AUR (hyprland-git) package, you will need to cleanbuild to update the package. Paru has been problematic with updating before, use Yay.\"\e[0m"
+    #echo -e "\e[33mReference: https://wiki.hyprland.org/FAQ/#how-do-i-update\e[0m"
+    #if $ask;then
+      #printf "Install \"yay\"?\n"
+      #printf "  y = Yes, install \"yay\" for me first. (DEFAULT)\n"
+      #printf "  n = No, use \"paru\" at my own risk.\n"
+      #printf "  a = Abort.\n"
+      #sleep 2
+      #read -p "====> " p
+      #case $p in
+        #[Nn]) AUR_HELPER=paru;;
+        #[Aa]) echo -e "\e[34mAlright, aborting...\e[0m";exit 1;;
+        #*) v paru -S --needed --noconfirm yay-bin;
+           #AUR_HELPER=yay;;
+      #esac
+    #else
+      #AUR_HELPER=paru
+  #  fi
+ # fi
+#else AUR_HELPER=yay
+#fi
 
 if $ask;then
   # execute per element of the array $pkglist
